@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+ 
+ 
+ 
+    <title>Document</title>
+
+
+
+    <style>
+        body { 
+              display: grid;
+
+        }
+        .tabs-container {
+            display: flex;
+            align-content: space-between;
+            gap: 10px;
+        }
+        .changer {
+               grid-area: 2 / 1; /* Both items occupy the first cell */
+
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="tabs-container">
+        <button class="tab tab1" data-index="0">i am tab 1</button>
+        <button class="tab tab2" data-index="1" >i literally am tab 2</button>
+        <button class="tab tab3" data-index="2" > pinky promise am tab 3 </button>
+        <button class="tab tab4" data-index="3" > Dude am just tab 4 </button>
+        
+    </div>
+<div class="changer-one changer" data-index="0">Z</div>
+<div class="changer-Two changer" data-index="1">O</div>
+<div class="changer-Three changer" data-index="2" >R</div>
+<div class="changer-Four changer" data-index="3" >S</div>
+
+
+
+    
+
+<script>
+
+const Buttons = document.querySelectorAll(".tab")
+
+
+  Buttons.forEach(button => {
+  button.addEventListener('click', (event) => 
+  {
+const index = event.target.dataset.index;
+
+        for (let x = 0; x < 4; x++)
+    {
+    const Content = document.getElementsByClassName("changer")[x]
+
+    Content.style.display = "none"; 
+  }
+    const Content = document.getElementsByClassName("changer")[index].style.display = ""; 
+
+
+});
+
+
+
+});
+
+
+
+</script>
+
+</body>
+</html>
