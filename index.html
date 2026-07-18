@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Tailwind Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-slate-50 text-slate-900">
+  <main class="max-w-4xl mx-auto p-6">
+    <header class="mb-8 text-center">
+      <h1 class="text-4xl font-bold mb-2">Welcome to My Tailwind Page</h1>
+      <p class="text-slate-600">A simple HTML page with JavaScript and Tailwind styling.</p>
+    </header>
+
+    <section>
+      <div id="storefront-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const storefrontGrid = document.getElementById('storefront-grid');
+
+    const hardwareList = [
+      { id: 1, name: "NVIDIA GeForce RTX 4090", type: "GPU", price: 1599, brand: "NVIDIA", image: "https://images.unsplash.com/photo-1591290619762-3eccfc7a9e6c?w=400&h=400&fit=crop" },
+      { id: 2, name: "AMD Ryzen 9 7950X", type: "CPU", price: 599, brand: "AMD", image: "https://images.unsplash.com/photo-1555256471-2486a1af53e3?w=400&h=400&fit=crop" },
+      { id: 3, name: "Intel Core i9-14900K", type: "CPU", price: 549, brand: "Intel", image: "https://images.unsplash.com/photo-1515894203271-2a9c6a9a6b6d?w=400&h=400&fit=crop" },
+      { id: 4, name: "AMD Radeon RX 7900 XTX", type: "GPU", price: 949, brand: "AMD", image: "https://images.unsplash.com/photo-1550355291-bbee04a92027?w=400&h=400&fit=crop" },
+      { id: 5, name: "NVIDIA GeForce RTX 4070 Ti", type: "GPU", price: 799, brand: "NVIDIA", image: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=400&h=400&fit=crop" },
+      { id: 6, name: "Kingston Fury Beast 32GB RAM", type: "Memory", price: 129, brand: "Kingston", image: "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=400&h=400&fit=crop" }
+    ];
+storefrontGrid.innerHTML = hardwareList.map(item => `
+      <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+        <img src="${item.image}" alt="${item.name}" class="w-full h-48 object-cover rounded-md mb-4" />
+        <h2 class="text-xl font-semibold mb-2">${item.name}</h2>
+        <p class="text-slate-600 mb-2">Type: ${item.type}</p>
+        <p class="text-slate-600 mb-2">Brand: ${item.brand}</p>
+        <p class="text-lg font-bold text-slate-800 hover:text-blue-500 cursor-pointer ">$${item.price}</p>
+      </div>
+`).join('');
+    
+  </script>
+</body>
+</html>
